@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Home from './pages/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import MoviePage from "./pages/MoviePage";
+import Footer from "./components/Footer";
 function App() {
   return (
     <Router>
@@ -15,6 +16,7 @@ function App() {
           <MoviePage />
         </Route>
       </Switch>
+      <Footer />
     </Router>
   );
 }

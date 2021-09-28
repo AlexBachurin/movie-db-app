@@ -88,6 +88,8 @@ textarea {
 
 main {
   background: var(--clr-main-bg);
+  /* height: 100vh; */
+  min-height: 700px;
 }
 
 .nav {
@@ -176,6 +178,7 @@ main {
   display: grid;
   gap: 2rem;
   padding-top: 2rem;
+  min-height: 700px;
 }
 .single-movie-info h2 {
   color: var(--clr-main);
@@ -197,6 +200,29 @@ main {
   border: none;
   outline: none;
   font-size: 1.2rem;
+}
+
+.footer {
+  width: 90vw;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.footer-descr {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.footer-descr p {
+  margin: 0;
+  margin-right: 15px;
+  padding-bottom: 5px;
+  font-size: 1.1rem;
+}
+.footer-descr a {
+  color: #fff;
 }
 
 @media screen and (min-width: 992px) {

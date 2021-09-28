@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom';
 const SingleMovie = ({ Poster, Title, Year, imdbID }) => {
     //check if Poster value = 'N/A' we place placeholder in src
     let imgSrc = ''
@@ -9,13 +9,15 @@ const SingleMovie = ({ Poster, Title, Year, imdbID }) => {
         imgSrc = Poster;
     }
     return (
-        <article className="movie">
-            <img className="movie-img" src={imgSrc} alt={Title} />
-            <div className="movie-info">
-                <h4 className="movie-title">{Title}</h4>
-                <p className="movie-year">{Year}</p>
-            </div>
-        </article>
+        <Link to={`movies/${imdbID}`}>
+            <article className="movie">
+                <img className="movie-img" src={imgSrc} alt={Title} />
+                <div className="movie-info">
+                    <h4 className="movie-title">{Title}</h4>
+                    <p className="movie-year">{Year}</p>
+                </div>
+            </article>
+        </Link>
     )
 }
 

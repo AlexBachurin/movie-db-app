@@ -149,6 +149,7 @@ main {
   padding-left: 1rem;
   padding-bottom: 10px;
   padding-top: 1rem;
+  color: #fff;
 }
 
 .movie:hover .movie-info {
@@ -166,4 +167,40 @@ main {
   color: red;
   font-size: 1.5rem;
   text-align: center;
+}
+
+.single-movie-page {
+  width: 90vw;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+  padding-top: 2rem;
+}
+.single-movie-info h2 {
+  color: var(--clr-main);
+}
+.single-movie-info p {
+  padding-top: 2rem;
+  color: var(--clr-main-text);
+}
+.single-movie-info h4 {
+  padding-top: 1rem;
+}
+.single-movie-info button {
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  background-color: var(--clr-main);
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+}
+
+@media screen and (min-width: 992px) {
+  .single-movie-page {
+    grid-template-columns: 1fr 2fr;
+  }
 }

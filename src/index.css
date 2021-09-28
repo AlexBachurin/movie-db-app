@@ -127,6 +127,7 @@ main {
 .movie {
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .movie-img {

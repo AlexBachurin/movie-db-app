@@ -122,6 +122,7 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 5rem;
+  padding-bottom: 3rem;
 }
 
 .movie {
@@ -146,6 +147,7 @@ main {
   transform: translateY(100%);
   padding-left: 1rem;
   padding-bottom: 10px;
+  padding-top: 1rem;
 }
 
 .movie:hover .movie-info {

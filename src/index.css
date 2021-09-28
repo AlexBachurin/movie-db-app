@@ -157,7 +157,8 @@ main {
 
 .loading {
   width: 90vw;
-  max-width: var(--max-width);
+  max-width: var(600px);
+  margin: 0 auto;
   text-align: center;
 }
 

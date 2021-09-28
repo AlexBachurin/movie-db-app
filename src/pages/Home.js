@@ -5,10 +5,11 @@ import { useGlobalContext } from '../context'
 import Loading from '../components/Loading'
 const Home = () => {
     //display loading while fetching
-    const { loading } = useGlobalContext();
+    const { loading, error, errorMessage } = useGlobalContext();
     return (
         <main>
             <SearchForm />
+            {error ? <h3 className="error">{errorMessage}</h3> : null}
             {loading ? <Loading /> : <Movies />}
         </main>
     )

@@ -10,7 +10,8 @@ const AppProvider = ({ children }) => {
     //searchTerm
     const [term, setTerm] = useState('')
     //error
-    const [error, setError] = useState('');
+    const [error, setError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('')
 
     //url to fetch from
     let url = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_MOVIE_API_KEY}&s=${term}`
@@ -27,10 +28,12 @@ const AppProvider = ({ children }) => {
                 //if we have bad response from server, for example then we search "a", response will be {Response: False, Error: Too Many Results}
                 //so we handle it with cheсcking response, if its false we setting error, else we setting movies
                 if (data.Response === 'False') {
-                    setError(data.Error)
+                    setError(true)
+                    setErrorMessage(data.Error)
                 } else {
                     setMovies(data.Search);
                     setLoading(false);
+                    setError(false)
                 }
 
             } else {
@@ -40,6 +43,7 @@ const AppProvider = ({ children }) => {
                 console.log(data);
                 setMovies(data.Search);
                 setLoading(false)
+                setError(false)
             }
 
         }
@@ -57,7 +61,6 @@ const AppProvider = ({ children }) => {
     useEffect(() => {
         fetchMovies()
 
-
     }, [term])
 
 
@@ -65,7 +68,9 @@ const AppProvider = ({ children }) => {
         movies,
         loading,
         term,
-        handleSearch
+        handleSearch,
+        error,
+        errorMessage
     }}>
         {children}
     </AppContext.Provider>

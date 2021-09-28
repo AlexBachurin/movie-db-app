@@ -6,7 +6,7 @@ const Navbar = () => {
             <Link to="/">
                 <div className="logo-container">
 
-                    <img className="nav-logo" src="https://res.cloudinary.com/dljezd6qv/image/upload/v1619820552/main-logo.png" alt="bacha coding" />
+                    <img className="nav-logo" src="https://res.cloudinary.com/dljezd6qv/image/upload/v1619821176/main-logo-white-small.png" alt="bacha coding" />
 
                 </div>
             </Link>

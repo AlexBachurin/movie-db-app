@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useCallback } from "react";
 
 const AppContext = React.createContext();
 
@@ -13,11 +13,12 @@ const AppProvider = ({ children }) => {
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('')
 
-    //url to fetch from
-    let url = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_MOVIE_API_KEY}&s=${term}`
+
 
     //fetch data
-    const fetchMovies = async () => {
+    const fetchMovies = useCallback(async () => {
+        //url to fetch from
+        let url = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_MOVIE_API_KEY}&s=${term}`
         setLoading(true);
         try {
             //need to check if we have something in input or else we get empty movie list on first fetch
@@ -51,7 +52,7 @@ const AppProvider = ({ children }) => {
             console.log(error)
             setLoading(false)
         }
-    }
+    }, [term])
     //search input
     const handleSearch = (e) => {
         setTerm(e.target.value)
@@ -61,7 +62,7 @@ const AppProvider = ({ children }) => {
     useEffect(() => {
         fetchMovies()
 
-    }, [term])
+    }, [term, fetchMovies])
 
 
     return <AppContext.Provider value={{

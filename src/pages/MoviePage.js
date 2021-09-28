@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useEffect, useState, useCallback } from 'react'
+import { useParams, Link } from 'react-router-dom'
 import Loading from '../components/Loading';
 
 const MoviePage = () => {
@@ -11,7 +11,7 @@ const MoviePage = () => {
     console.log(id)
     let url = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_MOVIE_API_KEY}&i=${id}`
     //fetch single movie
-    const fetchMovie = async () => {
+    const fetchMovie = useCallback(async () => {
         setLoading(true)
         try {
             const res = await fetch(url);
@@ -24,11 +24,11 @@ const MoviePage = () => {
             console.log(error)
             setLoading(false)
         }
-    }
+    }, [url])
 
     useEffect(() => {
         fetchMovie();
-    }, [id])
+    }, [id, fetchMovie])
 
     return (
         <>
@@ -38,7 +38,9 @@ const MoviePage = () => {
                     <h2>{movieInfo.Title}</h2>
                     <p>{movieInfo.Plot}</p>
                     <h4>{movieInfo.Year}</h4>
-                    <button>back to search</button>
+                    <Link to='/'>
+                        <button>back to search</button>
+                    </Link>
                 </div>
             </section>}
         </>

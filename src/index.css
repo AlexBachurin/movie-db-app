@@ -151,3 +151,9 @@ main {
 .movie:hover .movie-info {
   transform: translateY(0);
 }
+
+.loading {
+  width: 90vw;
+  max-width: var(--max-width);
+  text-align: center;
+}

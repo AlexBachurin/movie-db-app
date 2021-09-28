@@ -1,29 +1,16 @@
 import React from 'react'
+import { useGlobalContext } from '../context'
+import SingleMovie from './SingleMovie';
 
 const Movies = () => {
+
+    const { movies } = useGlobalContext();
     return (
         <section className="movies">
-            <article className="movie">
-                <img className="movie-img" src="https://m.media-amazon.com/images/M/MV5BOTY4YjI2N2MtYmFlMC00ZjcyLTg3YjEtMDQyM2ZjYzQ5YWFkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" alt="batman" />
-                <div className="movie-info">
-                    <h4 className="movie-title">Title</h4>
-                    <p className="movie-year">year</p>
-                </div>
-            </article>
-            <article className="movie">
-                <img className="movie-img" src="https://m.media-amazon.com/images/M/MV5BOTY4YjI2N2MtYmFlMC00ZjcyLTg3YjEtMDQyM2ZjYzQ5YWFkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" alt="batman" />
-                <div className="movie-info">
-                    <h4 className="movie-title">Title</h4>
-                    <p className="movie-year">year</p>
-                </div>
-            </article>
-            <article className="movie">
-                <img className="movie-img" src="https://m.media-amazon.com/images/M/MV5BOTY4YjI2N2MtYmFlMC00ZjcyLTg3YjEtMDQyM2ZjYzQ5YWFkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" alt="batman" />
-                <div className="movie-info">
-                    <h4 className="movie-title">Title</h4>
-                    <p className="movie-year">year</p>
-                </div>
-            </article>
+            {/* display movies */}
+            {movies.map(movie => {
+                return <SingleMovie key={movie.imdbID} {...movie} />
+            })}
         </section>
     )
 }

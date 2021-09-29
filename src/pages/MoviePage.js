@@ -33,7 +33,7 @@ const MoviePage = () => {
     return (
         <>
             {loading ? <Loading /> : <section className="single-movie-page">
-                <img src={movieInfo.Poster} alt={movieInfo.Title} />
+                <img src={movieInfo.Poster === 'N/A' ? 'https://res.cloudinary.com/dljezd6qv/image/upload/v1632861499/No-Image-Placeholder.svg.png' : movieInfo.Poster} alt={movieInfo.Title} />
                 <div className="single-movie-info">
                     <h2>{movieInfo.Title}</h2>
                     <p>{movieInfo.Plot}</p>

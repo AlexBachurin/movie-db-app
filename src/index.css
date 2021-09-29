@@ -224,9 +224,20 @@ main {
 .footer-descr a {
   color: #fff;
 }
+.error-page {
+  text-align: center;
+  min-height: 400px;
+  padding-top: 100px;
+}
+.error-page h4 {
+  font-size: 2rem;
+}
 
 @media screen and (min-width: 992px) {
   .single-movie-page {
     grid-template-columns: 1fr 2fr;
+  }
+  .error-page {
+    min-height: 800px;
   }
 }

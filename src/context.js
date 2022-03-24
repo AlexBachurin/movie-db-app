@@ -38,7 +38,7 @@ const AppProvider = ({ children }) => {
                 }
 
             } else {
-                url = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_MOVIE_API_KEY}&s=avengers`
+                url = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_MOVIE_API_KEY}&s=avengers`
                 const res = await fetch(url);
                 const data = await res.json();
                 console.log(data);

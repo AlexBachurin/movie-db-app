@@ -18,7 +18,7 @@ const AppProvider = ({ children }) => {
     //fetch data
     const fetchMovies = useCallback(async () => {
         //url to fetch from
-        let url = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_MOVIE_API_KEY}&s=${term}`
+        let url = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_MOVIE_API_KEY}&s=${term}`
         setLoading(true);
         try {
             //need to check if we have something in input or else we get empty movie list on first fetch
